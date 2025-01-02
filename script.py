@@ -7,6 +7,9 @@ import datetime
 from openpyxl import load_workbook
 
 
+# Update file path
+file_path = r"E:\DjangoProject\PlayWright\4Beats\Excel.xlsx"
+
 def day_name():
     # Get today's date
     today = datetime.date.today()
@@ -21,7 +24,7 @@ def day_name():
 
 
 def read_my_excel_file():
-    df = pd.read_excel(r"E:\DjangoProject\PlayWright\4Beats\Excel.xlsx", sheet_name=day_name())
+    df = pd.read_excel(file_path, sheet_name=day_name())
     # df_rows = df.index.stop
     # print(df)
     # print(df_rows)
@@ -93,9 +96,6 @@ def insert_searched_data(max_len_list, min_len_list):
     # Check the updated DataFrame
     print(df)
 
-
-    # Assuming 'df' is your updated DataFrame
-    file_path = r"E:\DjangoProject\PlayWright\4Beats\Excel.xlsx"
 
     # Open the Excel file and write to the existing sheet
     with pd.ExcelWriter(file_path, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
